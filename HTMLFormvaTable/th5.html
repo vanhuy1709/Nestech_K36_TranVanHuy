@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="form" method="get" action="https://www.google.com.vn/search" onsubmit="handleSubmit(event)">
+        <h2><b>TÌM KIẾM ĐÊ</b></h2>
+        <input id="value" type="text" class="ghi" name="q" placeholder="Search here">
+        <input type="submit" class="bam" value="Tìm Kiếm">
+    </form>
+
+    <script>
+        const handleSubmit = (event) => {
+            event.preventDefault(); // Ngăn chặn hành động mặc định của form
+            const value = document.getElementById('value').value;
+            const query = `https://www.google.com.vn/search?q=${value}`;
+            console.log(value);
+            document.getElementById('form').action = query;
+            document.getElementById('form').submit(); // Gửi form với action mới
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    color: red;
+}
+h1 {
+    margin-bottom: 20px;
+    color: white;
+    text-align: center;
+    background-color: orange;
+}
+b{
+    margin-bottom: 20px;
+    color: blue;
+}
+.st{
+    margin-bottom: 20px;
+    color: red;
+}
