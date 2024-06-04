@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển Đổi Tiền Tệ</title>
+    <script type="text/javascript">
+        function convertCurrency() {
+            // Lấy giá trị nhập vào từ form
+            let amount = parseFloat(document.getElementById("amount").value);
+            let fromCurrency = document.getElementById("fromCurrency").value;
+            let toCurrency = document.getElementById("toCurrency").value;
+
+            // Tỷ giá giả định (thực tế có thể cần lấy từ API)
+            let exchangeRates = {
+                "USD": 1,
+                "VND": 25000,
+                "EUR": 0.85
+            };
+
+            // Tính toán giá trị sau khi chuyển đổi
+            let convertedAmount = amount * (exchangeRates[toCurrency] / exchangeRates[fromCurrency]);
+
+            // Hiển thị kết quả
+            alert("Số tiền sau khi chuyển đổi: " + convertedAmount.toFixed(2) + " " + toCurrency);
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <label for="amount">Số tiền:</label>
+        <input type="number" id="amount" name="amount" required><br><br>
+        
+        <label for="fromCurrency">Từ:</label>
+        <select id="fromCurrency" name="fromCurrency">
+            <option value="USD">USD</option>
+            <option value="VND">VND</option>
+            <option value="EUR">EUR</option>
+        </select><br><br>
+        
+        <label for="toCurrency">Đến:</label>
+        <select id="toCurrency" name="toCurrency">
+            <option value="USD">USD</option>
+            <option value="VND">VND</option>
+            <option value="EUR">EUR</option>
+        </select><br><br>
+        
+        <input type="button" value="Convert" onclick="convertCurrency()">
+    </form>
+</body>
+</html>
