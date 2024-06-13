@@ -1,51 +1,85 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chuyển Đổi Tiền Tệ</title>
-    <script type="text/javascript">
-        function convertCurrency() {
-            // Lấy giá trị nhập vào từ form
-            let amount = parseFloat(document.getElementById("amount").value);
-            let fromCurrency = document.getElementById("fromCurrency").value;
-            let toCurrency = document.getElementById("toCurrency").value;
-
-            // Tỷ giá giả định (thực tế có thể cần lấy từ API)
-            let exchangeRates = {
-                "USD": 1,
-                "VND": 25000,
-                "EUR": 0.85
-            };
-
-            // Tính toán giá trị sau khi chuyển đổi
-            let convertedAmount = amount * (exchangeRates[toCurrency] / exchangeRates[fromCurrency]);
-
-            // Hiển thị kết quả
-            alert("Số tiền sau khi chuyển đổi: " + convertedAmount.toFixed(2) + " " + toCurrency);
+    <title>Document</title>
+    <style>
+        body {
+            background-color: bisque;
         }
-    </script>
+        .sotien {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .dien, .chon1, .chon2, .submit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label, input, select {
+            margin-bottom: 5px;
+        }
+        .dien input, .chon1 select, .chon2 select, .submit input {
+            padding: 5px;
+        }
+    </style>
 </head>
 <body>
-    <form>
-        <label for="amount">Số tiền:</label>
-        <input type="number" id="amount" name="amount" required><br><br>
-        
-        <label for="fromCurrency">Từ:</label>
-        <select id="fromCurrency" name="fromCurrency">
-            <option value="USD">USD</option>
-            <option value="VND">VND</option>
-            <option value="EUR">EUR</option>
-        </select><br><br>
-        
-        <label for="toCurrency">Đến:</label>
-        <select id="toCurrency" name="toCurrency">
-            <option value="USD">USD</option>
-            <option value="VND">VND</option>
-            <option value="EUR">EUR</option>
-        </select><br><br>
-        
-        <input type="button" value="Convert" onclick="convertCurrency()">
+    <form class="sotien" id="currencyForm">
+        <div class="dien">
+            <label for="amount">Amount</label><br>
+            <input type="number" class="so" id="amount" name="amount">
+        </div>
+        <div class="chon1">
+            <label for="fromCurrency">From Currency</label><br>
+            <select class="tien0" id="fromCurrency" name="fromCurrency">
+                <option value="">Loại tiền</option>
+                <option value="VND">VND</option>
+                <option value="USD">USD</option>
+            </select>
+        </div>
+        <div class="chon2">
+            <label for="toCurrency">To Currency</label><br>
+            <select class="tien4" id="toCurrency" name="toCurrency">
+                <option value="">Loại tiền</option>
+                <option value="VND">VND</option>
+                <option value="USD">USD</option>
+            </select>
+        </div>
+        <div class="submit">
+            <input type="button" value="Convert" class="nhap" onclick="convertCurrency()">
+        </div>
     </form>
+    <h2>Kết quả:</h2>
+    <p id="result"></p>
+    <script>
+        const exchangeRates = {
+            USD: { VND: 25000 },
+            VND: { USD: 0.000043 }
+        };
+
+        function convertCurrency() {
+            const amount = document.getElementById('amount').value;
+            const fromCurrency = document.getElementById('fromCurrency').value;
+            const toCurrency = document.getElementById('toCurrency').value;
+
+            if (fromCurrency === "" || toCurrency === "") {
+                document.getElementById("result").innerText = "Vui lòng chọn loại tiền.";
+                return;
+            }
+
+            if (fromCurrency === toCurrency) {
+                document.getElementById("result").innerText = `Số tiền đã chuyển đổi: ${amount} ${toCurrency}`;
+                return;
+            }
+
+            const rate = exchangeRates[fromCurrency][toCurrency];
+            const convertedAmount = amount * rate;
+
+            document.getElementById("result").innerText = `Số tiền đã chuyển đổi: ${convertedAmount.toFixed(2)} ${toCurrency}`;
+        }
+    </script>
 </body>
 </html>
