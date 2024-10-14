@@ -1,0 +1,100 @@
+#container { width: 1200px; margin: auto; }
+#container > header { height: 80px; background-color: darkcyan; }
+#container > nav { height: 45px; background-color: darkorange; }
+#container > main { min-height: 400px; display: flex; background-color: lightcyan; }
+#container > main > article { width: 100%; }
+#thanhmenu { padding: 0; margin: 0; list-style: none; text-align: center; font-family: Verdana, sans-serif; }
+#thanhmenu > li { display: inline; line-height: 45px; margin: 5px; }
+#thanhmenu > li > a { text-decoration: none; color: lightcyan; font-weight: 600; text-transform: uppercase; }
+
+/* CSS sanphamthem.php */
+#frmthemsp { width: 1100px; margin: auto; border: 2px solid rgb(133, 207, 220); padding: 10px 10px;}
+#frmthemsp > div { margin-bottom: 15px;}
+#frmthemsp > div > label { display: block;}
+#frmthemsp  .txt { height: 40px; outline: none; width: 100%;}
+#frmthemsp > div > button { width: 130px; height: 35px;} 
+#frmthemsp .haicot { display: flex; justify-content: space-between}
+#frmthemsp .haicot > div { width: 48%;  }
+#frmthemsp #mota { height: 120px;}
+
+/* CSS suasanpham.php */
+#frmsuasp { width: 1100px; margin: auto; border: 2px solid rgb(133, 207, 220); padding: 10px 10px;}
+#frmsuasp > div { margin-bottom: 15px;}
+#frmsuasp > div > label { display: block;}
+#frmsuasp  .txt { height: 40px; outline: none; width: 100%;}
+#frmsuasp > div > button { width: 130px; height: 35px;} 
+#frmsuasp .haicot { display: flex; justify-content: space-between}
+#frmsuasp .haicot > div { width: 48%;  }
+#frmsuasp #mota { height: 120px;}
+
+/* CSS danhsachsanpham*/
+#danhsachsanpham h2 { 
+    margin: 0; font-size: 23px; padding: 8px; background-color: darkcyan; color: white;
+}
+#listsp > .sp { border: 1px solid darkcyan ; padding: 10px; 
+display: grid; grid-template-columns: 400px 100px auto auto 100px 100px 100px 100px;}
+#listsp > .sp > *:last-child{ text-align: right;}
+#listsp > .sp a { text-decoration: none; color: black}
+#listsp > .sp a:hover { color: red; }
+#listsp > .sp b { color:darkorange; font-size: 18px;;}
+/*Phan trang */
+.pagination {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+/*Loại thêm sản phẩm*/
+#frmthemloaisp { width: 800px; margin:auto; border:2px solid   darkblue; padding-top:40px;}
+#frmthemloaisp > div { margin-bottom: 15px;}
+#frmthemloaisp > div > label { display: block;}
+#frmthemloaisp > div > button { width: 180px; height: 35px;} 
+#frmthemloaisp .txt { height: 40px; outline: none; width: 100%;}
+
+/*Loại sửa sản phẩm */
+#frmsualoaisp { width: 800px; margin:auto; border:2px solid   darkblue; padding-top:40px}
+#frmsualoaisp > div { margin-bottom: 15px;}
+#frmsualoaisp > div > label { display: block;}
+#frmsualoaisp > div > button { width: 180px; height: 35px;} 
+#frmsualoaisp .txt { height: 40px; outline: none; width: 100%;}
+
+/*Danh sách loại*/
+#danhsachLoaiSP { width: 800px; margin: auto;}
+#danhsachLoaiSP h2 { 
+    margin: 0; font-size: 23px; padding: 8px; background-color: darkcyan; color: white;
+}
+#listLoaiSP > .loai { border: 1px solid darkcyan ; padding: 10px; 
+display: grid; grid-template-columns: 400px  auto auto auto}
+#listLoaiSP > .loai > *:last-child{ text-align: right;}
+#listLoaiSP > .loai a { text-decoration: none; color: black}
+#listLoaiSP > .loai a:hover { color: red; }
+#listLoaiSP > .loai b { color:darkorange; font-size: 18px;}
+
+/*Login*/
+#frmlogin { width:650px; margin:auto; border:2px solid darkblue; padding:10px 10px;}
+#frmlogin > div { margin-bottom: 15px;}
+#frmlogin > div > label { display: block;}
+#frmlogin > div > input { padding: 8px; outline: none; width: 100%;}
+#frmlogin > div > button { width: 130px; height: 35px;} 
+
+#container > header{ position: relative;}
+#userinfo { position: absolute; bottom: 10px; right: 20px; color: yellow}
